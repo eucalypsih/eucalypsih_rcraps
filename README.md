@@ -65,3 +65,25 @@ func main() {
 
 
 ```
+```rust
+use std::collections::HashMap;
+
+fn remove_duplicates(arr: Vec<&str>) -> Vec<&str> {
+    let mut unique_map = HashMap::new();
+    let mut unique_list = Vec::new();
+
+    for &item in &arr {
+        if !unique_map.contains_key(item) {
+            unique_map.insert(item, true);
+            unique_list.push(item);
+        }
+    }
+    unique_list
+}
+
+fn main() {
+    let arr = vec!["apple", "mango", "apple", "orange", "mango", "mango"];
+    println!("{:?}", remove_duplicates(arr));
+}
+
+```
