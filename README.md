@@ -87,3 +87,34 @@ fn main() {
 }
 
 ```
+```c++
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <string>
+
+std::vector<std::string> removeDuplicates(const std::vector<std::string>& arr) {
+    std::unordered_map<std::string, bool> uniqueMap;
+    std::vector<std::string> uniqueList;
+
+    for (const auto& item : arr) {
+        if (uniqueMap.find(item) == uniqueMap.end()) {
+            uniqueMap[item] = true;
+            uniqueList.push_back(item);
+        }
+    }
+    return uniqueList;
+}
+
+int main() {
+    std::vector<std::string> arr = {"apple", "mango", "apple", "orange", "mango", "mango"};
+    std::vector<std::string> result = removeDuplicates(arr);
+    
+    for (const auto& item : result) {
+        std::cout << item << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
